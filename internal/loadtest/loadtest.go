@@ -65,6 +65,8 @@ func RunLoadTest(c Config) {
 
 	fmt.Printf(outputDelimiter)
 
+	// ToDo: Add optional reporters output to JSON
+
 	textReporter := v.NewTextReporter(&metrics)
 	err := textReporter(os.Stdout)
 	handleReporterError(err)
