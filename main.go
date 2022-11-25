@@ -9,11 +9,6 @@ import (
 )
 
 func main() {
-	err := godotenv.Load(".env")
-	if err != nil {
-		log.Fatalf("Error loading .env file")
-	}
-
 	loadConfigMode, err := cli.SelectLoadConfigMode()
 	if err != nil {
 		log.Fatalf("CLI Reading error: %v", err)
@@ -21,6 +16,10 @@ func main() {
 
 	switch loadConfigMode {
 	case "ENV":
+		err := godotenv.Load(".env")
+		if err != nil {
+			log.Fatalf("Error loading .env file")
+		}
 		testConfig := config.GetConfigFromEnvironment()
 		loadtest.RunLoadTest(testConfig)
 	case "MANUAL":
