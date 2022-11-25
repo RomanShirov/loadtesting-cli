@@ -3,6 +3,7 @@ module github.com/RomanShirov/loadtesting-cli
 go 1.18
 
 require (
+	github.com/joho/godotenv v1.4.0
 	github.com/manifoldco/promptui v0.9.0
 	github.com/tsenart/vegeta v12.7.0+incompatible
 )
