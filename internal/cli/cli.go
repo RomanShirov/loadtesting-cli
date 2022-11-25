@@ -9,6 +9,7 @@ import (
 )
 
 func SelectLoadConfigMode() (string, error) {
+	confModeFlags := map[string]string{"From .env configuration file": "ENV", "Select manually": "MANUAL"}
 	prompt := promptui.Select{
 		Label: "Choose a load configuration mode",
 		Items: []string{"From .env configuration file", "Select manually"},
@@ -16,12 +17,14 @@ func SelectLoadConfigMode() (string, error) {
 
 	_, result, err := prompt.Run()
 
+	configMode := confModeFlags[result]
+
 	if err != nil {
 		fmt.Printf("Incorrect input error: %v\n", err)
 		return "", err
 	}
 
-	return result, nil
+	return configMode, nil
 }
 
 func GatherConfigData() loadtest.Config {
