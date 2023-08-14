@@ -50,6 +50,9 @@ func RunLoadTest(c Config) {
 			50 * time.Millisecond,
 			100 * time.Millisecond,
 			1000 * time.Millisecond,
+			3000 * time.Millisecond,
+			5000 * time.Millisecond,
+			10000 * time.Millisecond,
 		},
 	}
 
